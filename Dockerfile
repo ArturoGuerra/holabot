@@ -9,5 +9,6 @@ FROM alpine:latest
 WORKDIR /app
 RUN apk add --update ffmpeg
 COPY --from=builder /build/bin/hola /app
+COPY file.mp3 /app
 
 CMD ["./hola"]
