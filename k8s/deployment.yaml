@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hola
+  labels:
+    app: hola
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hola
+  template:
+    metadata:
+      labels:
+        app: hola
+    spec:
+      containers:
+      - name: hola
+        image: arturoguerra/hola:latest
+        envFrom:
+        - configMapRef:
+            name: hola-config
